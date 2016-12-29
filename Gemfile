@@ -68,6 +68,7 @@ gem 'config'
 gem 'twitter'
 gem 'dotenv-rails'
 gem 'rumoji'
+gem 'slim-rails'
 
 group :development, :test do
 

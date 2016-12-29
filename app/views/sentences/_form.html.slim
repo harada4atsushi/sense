@@ -1,0 +1,6 @@
+= bootstrap_form_for @sentence do |f|
+  = render "shared/errors", object: @sentence
+  = f.text_field :body
+
+  .actions
+    = f.submit
