@@ -26,4 +26,5 @@
     
   .actions.btn-group
     = f.submit class: 'btn btn-success'
+    = link_to '削除', sentence_path(@sentence), method: :delete, class: 'btn btn-danger'
     = link_to 'スキップ', next_sentences_path, class: 'btn btn-default'

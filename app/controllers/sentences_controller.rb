@@ -38,7 +38,7 @@ class SentencesController < ApplicationController
   end
 
   def next
-    sentence = Sentence.all.sample
+    sentence = Sentence.find_untagged
     redirect_to [:edit, sentence]
   end
 
