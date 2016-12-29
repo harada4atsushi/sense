@@ -12,10 +12,9 @@
     <% @sentences.each do |sentence| %>
       <tr>
         <td><%= sentence.body %></td>
-        <td>
-          <%= link_to t('helpers.link.show'), sentence, class: "btn btn-default" %>
+        <td nowrap="nowrap">
           <%= link_to t('helpers.link.edit'), edit_sentence_path(sentence), class: "btn btn-default" %>
-          <%= link_to t('helpers.link.destroy'), sentence, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+          <%= link_to t('helpers.link.destroy'), sentence, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %>
@@ -25,3 +24,7 @@
 <br>
 
 <%= link_to t('helpers.link.new'), new_sentence_path, class: "btn btn-default" %>
+
+<br>
+<br>
+<br>
