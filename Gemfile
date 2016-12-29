@@ -5,9 +5,9 @@ ruby '2.3.3'
 gem 'rails', '~> 5.0.0'
 
 # select DB for local server
-#gem 'mysql2'
+gem 'mysql2'
 # gem 'sqlite3', :group => :development
-gem 'pg'
+# gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass'
@@ -67,6 +67,7 @@ gem 'puma', group: :development
 gem 'config'
 gem 'twitter'
 gem 'dotenv-rails'
+gem 'rumoji'
 
 group :development, :test do
 

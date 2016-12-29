@@ -12,7 +12,10 @@ namespace :collect do
     client.sample do |object|
       next unless object.is_a?(Twitter::Tweet)
       next if object.user.lang != 'ja' || object.text.index('RT') || object.user_mentions?
-      puts object.text
+
+      text = Rumoji.encode(object.text)
+      puts("text: #{text}")
+      Sentence.create!(body: text)
 
       break if count > 100
       count = count + 1

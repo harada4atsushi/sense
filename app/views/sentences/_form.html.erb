@@ -1,0 +1,8 @@
+<%= bootstrap_form_for(@sentence) do |f| %>
+  <%= render "shared/errors", object: @sentence %>
+
+  <%= f.text_area :body %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,7 @@
+<p>
+  <strong>Body:</strong>
+  <%= @sentence.body %>
+</p>
+
+<%= link_to t('helpers.link.edit'), edit_sentence_path(@sentence), class: "btn btn-default" %>
+<%= link_to t('helpers.link.back'), sentences_path, class: "btn btn-default" %>
