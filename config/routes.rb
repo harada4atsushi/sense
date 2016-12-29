@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :sentences
+  resources :sentences do
+    get :next, on: :collection
+  end
+
   devise_for :admin_users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users

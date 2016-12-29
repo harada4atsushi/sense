@@ -37,6 +37,11 @@ class SentencesController < ApplicationController
     redirect_to sentences_url, notice: 'Sentenceが削除されました'
   end
 
+  def next
+    sentence = Sentence.all.sample
+    redirect_to [:edit, sentence]
+  end
+
   private
     def set_sentence
       @sentence = Sentence.find(params[:id])
