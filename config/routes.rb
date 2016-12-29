@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :sentences do
+  resources :sentences, except: :show do
     get :next, on: :collection
   end
 

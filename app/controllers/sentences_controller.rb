@@ -1,5 +1,5 @@
 class SentencesController < ApplicationController
-  before_action :set_sentence, only: [:show, :edit, :update, :destroy]
+  before_action :set_sentence, only: [:edit, :update, :destroy]
 
   def index
     @sentences = Sentence.all
