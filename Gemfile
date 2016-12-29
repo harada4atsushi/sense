@@ -65,6 +65,8 @@ gem 'seed-fu'
 gem 'puma', group: :development
 
 gem 'config'
+gem 'twitter'
+gem 'dotenv-rails'
 
 group :development, :test do
 
