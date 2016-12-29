@@ -69,6 +69,8 @@ gem 'twitter'
 gem 'dotenv-rails'
 gem 'rumoji'
 gem 'slim-rails'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'bootstrap-tagsinput-rails'
 
 group :development, :test do
 

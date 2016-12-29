@@ -207,3 +207,9 @@ ja:
         password_confirmation : パスワード(確認)
         current_password: 現在のパスワード
         remember_me: パスワードを保存する
+      sentence:
+        body: 文章
+        yes_no_list: YES/NO
+        feeling_list: 気持ち
+        greeting_list: あいさつ
+        question_list: 質問

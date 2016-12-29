@@ -38,13 +38,11 @@ class SentencesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_sentence
       @sentence = Sentence.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def sentence_params
-      params.require(:sentence).permit(:body)
+      params.require(:sentence).permit(:body, :yes_no_list, :feeling_list)
     end
 end

@@ -1,6 +1,11 @@
+/*
+*= require bootstrap-tagsinput
+*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "devise_bootstrap_views";
+
+
 
 body {
   min-height: 2000px;
@@ -9,4 +14,8 @@ body {
 
 .container-main {
   margin-top: 20px;
+}
+
+.bootstrap-tagsinput {
+  width: 100%;
 }
