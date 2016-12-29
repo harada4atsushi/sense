@@ -6,10 +6,11 @@ import numpy as np
 # from learning.core.training_set.training_text import TrainingText
 # from learning.core.nlang import Nlang
 # from learning.config.config import Config
-# from sklearn.externals import joblib
+from sklearn.externals import joblib
 from sklearn.svm import SVC
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.preprocessing import MultiLabelBinarizer
+from core.tagged_sentence_training_set import TaggedSentenceTrainingSet
 # from sklearn.feature_extraction.text import CountVectorizer
 
 # c = OneVsRestClassifier(SVC(kernel='linear', probability=True))
@@ -23,26 +24,31 @@ from sklearn.preprocessing import MultiLabelBinarizer
 #
 # result = estimator.predict(X)
 # print(result)
+from core.text_array import TextArray
 
+training_set = TaggedSentenceTrainingSet()
+training_set.build()
 
-data = [
-        [[1 , 2, 3, 4], 1, 10, 0, 0, 0],
-        [[2 , 3, 4, 5], 0, 7, 22, 0, 0],
-        [[3 , 4, 5, 6], 0, 0, 6, 0, 20],
-       ]
-
-X = np.array([d[1:] for d in data])
-yvalues = np.array([d[0] for d in data])
+# data = [
+#         [[1, 3, 4], 1, 10, 0, 0, 0],
+#         [[2, 3, 4, 5, 21], 0, 7, 22, 0, 0],
+#         [[3, 4, 5, 6, 10], 0, 0, 6, 0, 20],
+#        ]
+#
+# X = np.array([d[1:] for d in data])
+# yvalues = np.array([d[0] for d in data])
+# print(training_set.y)
 
 # Create a binary array marking values as True or False
-from sklearn.preprocessing import MultiLabelBinarizer
 binarizer = MultiLabelBinarizer()
-Y = binarizer.fit_transform(yvalues)
+print(training_set.y)
+Y = binarizer.fit_transform(training_set.y)
+# Y = binarizer.fit_transform(yvalues)
+print(Y)
 
-clf = OneVsRestClassifier(SVC(kernel='poly'))
-clf.fit(X, Y)
-result = clf.predict(X) # predict on a new X
+estimator = OneVsRestClassifier(SVC(kernel='linear'))
+estimator.fit(training_set.x, Y)
 
-print(binarizer.inverse_transform(result))
-
-
+joblib.dump(estimator, "models/estimator.pkl")
+joblib.dump(training_set.body_array.vectorizer, "models/vectorizer.pkl")
+joblib.dump(binarizer, "models/binarizer.pkl")
