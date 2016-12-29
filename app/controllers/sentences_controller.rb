@@ -22,10 +22,9 @@ class SentencesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sentences/1
   def update
     if @sentence.update(sentence_params)
-      redirect_to sentences_path, notice: 'Sentenceが更新されました'
+      redirect_to next_sentences_path, notice: 'Sentenceが更新されました'
     else
       render :edit
     end
@@ -34,7 +33,7 @@ class SentencesController < ApplicationController
   # DELETE /sentences/1
   def destroy
     @sentence.destroy
-    redirect_to sentences_url, notice: 'Sentenceが削除されました'
+    redirect_to next_sentences_path, notice: 'Sentenceが削除されました'
   end
 
   def next
@@ -48,6 +47,6 @@ class SentencesController < ApplicationController
     end
 
     def sentence_params
-      params.require(:sentence).permit(:body, :yes_no_list, :feeling_list)
+      params.require(:sentence).permit(:body, :yes_no_list, :feeling_list, :greeting_list, :question_list)
     end
 end
