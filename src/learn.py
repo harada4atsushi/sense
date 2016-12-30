@@ -39,8 +39,10 @@ training_set.build()
 # yvalues = np.array([d[0] for d in data])
 # print(training_set.y)
 
+
 # Create a binary array marking values as True or False
 binarizer = MultiLabelBinarizer()
+print('trainin set count: %s' % len(training_set.y))
 print(training_set.y)
 Y = binarizer.fit_transform(training_set.y)
 # Y = binarizer.fit_transform(yvalues)

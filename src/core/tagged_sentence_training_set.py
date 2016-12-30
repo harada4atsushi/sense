@@ -28,7 +28,7 @@ class TaggedSentenceTrainingSet:
 #         # self.binarizer = joblib.load("learning/models/%s/tag_model_labels.pkl" % config.env)  # TODO 共通化したい
 #
     def build(self):
-        sentences = pd.read_sql("select body, (select group_concat(id separator ',') from taggings where taggings.taggable_id = sentences.id) as tag_ids from sentences having tag_ids is not null;", self.db)
+        sentences = pd.read_sql("select body, (select group_concat(tag_id separator ',') from taggings where taggings.taggable_id = sentences.id) as tag_ids from sentences having tag_ids is not null;", self.db)
         body_array = TextArray(sentences['body'])
         self._x = body_array.to_vec(type='array')
         self._body_array = body_array

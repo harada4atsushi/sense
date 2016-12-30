@@ -1,6 +1,8 @@
 namespace :collect do
   desc 'collect sentences from twitter'
-  task twitter: :environment do
+  task :twitter, ['get_count'] => :environment do |task, args|
+    get_count = (args[:get_count] || 100).to_i
+
     client = Twitter::Streaming::Client.new(
       consumer_key:        ENV['TWITTER_CONSUMER_KEY'],
       consumer_secret:     ENV['TWITTER_CONSUMER_SECRET'],
@@ -17,7 +19,7 @@ namespace :collect do
       puts("text: #{text}")
       Sentence.create!(body: text)
 
-      break if count > 100
+      break if count > get_count
       count = count + 1
     end
   end
