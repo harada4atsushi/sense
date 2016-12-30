@@ -1,0 +1,22 @@
+---
+- name: install nginx
+  yum: name=nginx state=installed
+  notify: restart nginx
+
+- name: ensure nginx/conf.d is empty
+  shell: rm -f /etc/nginx/conf.d/*
+
+- name: Make ssl files directory
+  file: path=/etc/nginx/ssl state=directory
+  
+- name: deploy ssl crt file
+  copy: src=dummy.crt dest=/etc/nginx/ssl/dummy.crt
+
+- name: deploy ssl key file
+  copy: src=dummy.key dest=/etc/nginx/ssl/dummy.key
+
+- name: deploy nginx config file
+  template: >
+    src=sense.conf
+    dest=/etc/nginx/conf.d/sense.conf
+  notify: restart nginx

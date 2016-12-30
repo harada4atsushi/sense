@@ -18,9 +18,9 @@ test:
   <<: *default
   database: sense_test
 
-# production:
-#   <<: *default
-#   host: <%= ENV['DB_HOST'] %>
-#   database: sense
-#   username: sense
-#   password: <%= ENV['DB_PASSWORD'] %>
+production:
+  <<: *default
+  # host: <%= ENV['DB_HOST'] %>
+  # database: sense
+  # username: sense
+  # password: <%= ENV['DB_PASSWORD'] %>

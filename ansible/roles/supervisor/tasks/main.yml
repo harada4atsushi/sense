@@ -1,0 +1,11 @@
+- name: install supervisor
+  yum: name=supervisor state=installed
+
+- name: deploy supervisord.conf file
+  template: >
+    src=supervisord.conf
+    dest=/etc/supervisord.conf
+  # notify: restart nginx
+
+- name: Auto Running supervisor
+  service: name=supervisord state=running enabled=yes
