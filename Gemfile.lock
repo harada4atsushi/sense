@@ -85,6 +85,7 @@ GEM
     config (1.2.1)
       activesupport (>= 3.0)
       deep_merge (~> 1.0, >= 1.0.1)
+    cool.io (1.4.5)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     deep_merge (1.1.1)
@@ -183,6 +184,10 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
+    msgpack (0.5.12)
+    msgpack-rpc (0.5.4)
+      cool.io (~> 1.4.3)
+      msgpack (~> 0.5.10)
     multi_json (1.12.1)
     multipart-post (2.0.0)
     mysql2 (0.4.5)
@@ -408,6 +413,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   letter_opener
+  msgpack-rpc (~> 0.5.4)
   mysql2
   pry-byebug
   pry-doc

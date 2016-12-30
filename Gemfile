@@ -71,6 +71,7 @@ gem 'rumoji'
 gem 'slim-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'bootstrap-tagsinput-rails'
+gem 'msgpack-rpc', '~> 0.5.4'
 
 group :development, :test do
 
