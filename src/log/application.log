@@ -1,0 +1,25 @@
+learn.py start
+learn.py start
+Document running1
+Document running2
+Document running3
+Document running4
+Document running1
+Document running2
+Document running3
+Document running4
+server.predict()
+server.predict()
+server.predict()
+self._sentences: ['おっけーです' 'こんにちは' '結構です' 'はい。' 'いいえ、そんなことはないですね' 'はい、いいですよ']
+Document running1
+Document running2
+Document running3
+Document running4
+self._sentences: ['こんにちは！' 'こんにちは、君は誰なの？' 'こんばんは' '撤収しました！ お疲れ様でした！' 'おっけーです']
+Document running1
+Document running2
+Document running3
+Document running4
+server.predict()
+tags: [('1', '3'), ('13',), ('16',), ('1',), ('16',), ('1',)]

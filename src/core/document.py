@@ -6,6 +6,7 @@ from sklearn.externals import joblib
 # from learning.config.config import Config
 # from learning.core.training_set.training_text import TrainingText
 # from learning.core.training_set.text_array import TextArray
+from core.log import logger
 from core.model_not_exists_error import ModelNotExistsError
 from core.text_array import TextArray
 

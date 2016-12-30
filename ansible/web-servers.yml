@@ -9,6 +9,6 @@
     # - rbenv
     # - nginx
     # - mysql
-    - app
-    # - supervisor
+    # - app
+    - supervisor
     # #- newrelic

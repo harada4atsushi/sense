@@ -12,6 +12,7 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.preprocessing import MultiLabelBinarizer
 
 from core.evaluator import Evaluator
+from core.log import logger
 from core.tagged_sentence_training_set import TaggedSentenceTrainingSet
 # from sklearn.feature_extraction.text import CountVectorizer
 
@@ -27,6 +28,8 @@ from core.tagged_sentence_training_set import TaggedSentenceTrainingSet
 # result = estimator.predict(X)
 # print(result)
 from core.text_array import TextArray
+
+logger.debug('learn.py start')
 
 training_set = TaggedSentenceTrainingSet()
 training_set.build()

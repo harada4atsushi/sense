@@ -1,3 +1,4 @@
+import numpy as np
 from sklearn.externals import joblib
 from sklearn.svm import SVC
 from sklearn.multiclass import OneVsRestClassifier
@@ -7,13 +8,14 @@ from core.document import Document
 from core.tagged_sentence_training_set import TaggedSentenceTrainingSet
 from core.text_array import TextArray
 
-X = [
+X = (
     'こんにちは！',
     'こんにちは、君は誰なの？',
     'こんばんは',
     '撤収しました！ お疲れ様でした！',
     'おっけーです'
-]
+)
+X = np.array(X)
 
 # estimator = joblib.load("models/estimator.pkl")
 # vectorizer = joblib.load('models/vectorizer.pkl')
@@ -29,3 +31,4 @@ X = [
 # print(binarizer.inverse_transform(result))
 
 result = Document(X).tag()
+print(result)

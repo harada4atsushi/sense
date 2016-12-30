@@ -1,7 +1,9 @@
+import numpy as np
 from gevent.server import StreamServer
 from mprpc import RPCServer
 from sklearn.externals import joblib
 from core.document import Document
+from core.log import logger
 
 
 class Server(RPCServer):
@@ -49,7 +51,8 @@ class Server(RPCServer):
     #     return { 'status_code': self.STATUS_CODE_SUCCESS }
     #
     def predict(self, sentences):
-        tags = Document(sentences).tag()
+        tags = Document(np.array(sentences)).tag()
+        logger.debug("tags: %s" % tags)
         return {
             'status_code': self.STATUS_CODE_SUCCESS,
             'tags': tags
