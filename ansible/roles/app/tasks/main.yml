@@ -1,2 +1,14 @@
+# アプリケーション固有のyumパッケージをインストール
+- name: add groonga repository
+  # shell: rpm -ivh http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
+  yum: name=http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm state=present
+
+- name: install application specific packages
+  yum: name={{ item }} state=installed
+  with_items:
+    - mecab
+    - mecab-ipadic
+    - mecab-devel
+
 - name: install bundler gem
   gem: name=bundler user_install=no

@@ -5,10 +5,10 @@
     deploy_user: a.harada
     # newrelic_api_key: 11c470b346004a036af703c766f93be841385bcd
   roles:
-    - base
-    - rbenv
-    - nginx
-    - mysql
+    # - base
+    # - rbenv
+    # - nginx
+    # - mysql
     - app
-    - supervisor
-    # - newrelic
+    # - supervisor
+    # #- newrelic
