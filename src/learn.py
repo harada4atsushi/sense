@@ -10,6 +10,8 @@ from sklearn.externals import joblib
 from sklearn.svm import SVC
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.preprocessing import MultiLabelBinarizer
+
+from core.evaluator import Evaluator
 from core.tagged_sentence_training_set import TaggedSentenceTrainingSet
 # from sklearn.feature_extraction.text import CountVectorizer
 
@@ -50,6 +52,8 @@ print(Y)
 
 estimator = OneVsRestClassifier(SVC(kernel='linear'))
 estimator.fit(training_set.x, Y)
+
+Evaluator().evaluate(estimator, training_set.x, Y)
 
 joblib.dump(estimator, "models/estimator.pkl")
 joblib.dump(training_set.body_array.vectorizer, "models/vectorizer.pkl")
