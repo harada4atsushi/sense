@@ -4,22 +4,22 @@
   
   hr
   
-  = f.text_field :yes_no_list, value: @sentence.yes_no_list.join(','), data: { role: :tagsinput }
+  = f.text_field :yes_no_list, value: @sentence.yes_no_list.join(','), data: { role: :tagsinput }, wrapper: { class: 'form-group-narrow' }
   = f.form_group
     | タグリスト：
     = Sentence.all_tags(on: 'yes_no').pluck(:name).join(',')
 
-  = f.text_field :feeling_list, value: @sentence.feeling_list.join(','), data: { role: :tagsinput }
+  = f.text_field :feeling_list, value: @sentence.feeling_list.join(','), data: { role: :tagsinput }, wrapper: { class: 'form-group-narrow' }
   = f.form_group
     | タグリスト：
     = Sentence.all_tags(on: 'feeling').pluck(:name).join(',')
     
-  = f.text_field :greeting_list, value: @sentence.greeting_list.join(','), data: { role: :tagsinput }
+  = f.text_field :greeting_list, value: @sentence.greeting_list.join(','), data: { role: :tagsinput }, wrapper: { class: 'form-group-narrow' }
   = f.form_group
     | タグリスト：
     = Sentence.all_tags(on: 'greeting').pluck(:name).join(',')
       
-  = f.text_field :question_list, value: @sentence.question_list.join(','), data: { role: :tagsinput }
+  = f.text_field :question_list, value: @sentence.question_list.join(','), data: { role: :tagsinput }, wrapper: { class: 'form-group-narrow' }
   = f.form_group
     | タグリスト：
     = Sentence.all_tags(on: 'question').pluck(:name).join(',')
