@@ -6,14 +6,15 @@
 - name: ensure nginx/conf.d is empty
   shell: rm -f /etc/nginx/conf.d/*
 
-- name: Make ssl files directory
-  file: path=/etc/nginx/ssl state=directory
-  
-- name: deploy ssl crt file
-  copy: src=dummy.crt dest=/etc/nginx/ssl/dummy.crt
-
-- name: deploy ssl key file
-  copy: src=dummy.key dest=/etc/nginx/ssl/dummy.key
+# 初回のみ実行
+# - name: Make ssl files directory
+#   file: path=/etc/nginx/ssl state=directory
+#
+# - name: deploy ssl crt file
+#   copy: src=dummy.crt dest=/etc/nginx/ssl/dummy.crt
+#
+# - name: deploy ssl key file
+#   copy: src=dummy.key dest=/etc/nginx/ssl/dummy.key
 
 - name: deploy nginx config file
   template: >

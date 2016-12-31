@@ -10,5 +10,5 @@
     - nginx
     - mysql
     - app
-    - supervisor
+    # - supervisor  # 設定がうまくいかなかったため、手動でUpstartの設定をした
     # - newrelic
