@@ -14,6 +14,6 @@ logger.setLevel(DEBUG)
 # logger.addHandler(handler)
 
 # file handler
-fhandler = TimedRotatingFileHandler("./log/application.log", when='D', backupCount=30)
+fhandler = TimedRotatingFileHandler("log/application.log", when='D', backupCount=30)
 fhandler.setLevel(DEBUG)
 logger.addHandler(fhandler)

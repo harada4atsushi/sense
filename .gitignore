@@ -54,3 +54,4 @@ src/models/**
 !src/models/.keep
 __pycache__
 *.pyc
+src/log/application.log
