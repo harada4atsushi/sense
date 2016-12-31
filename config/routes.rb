@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :sentences, except: :show do
-    get :next, on: :collection
+    get :next, on: :member
+    resource :feelings do
+      get :next, on: :collection
+    end
   end
 
   devise_for :admin_users

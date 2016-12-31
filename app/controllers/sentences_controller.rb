@@ -1,5 +1,5 @@
 class SentencesController < ApplicationController
-  before_action :set_sentence, only: [:edit, :update, :destroy]
+  before_action :set_sentence, only: [:edit, :update, :destroy, :next]
 
   def index
     @sentences = Sentence.all
@@ -24,7 +24,7 @@ class SentencesController < ApplicationController
 
   def update
     if @sentence.update(sentence_params)
-      redirect_to next_sentences_path, notice: 'Sentenceが更新されました'
+      redirect_to next_sentence_path(@sentence), notice: 'Sentenceが更新されました'
     else
       render :edit
     end
@@ -33,11 +33,11 @@ class SentencesController < ApplicationController
   # DELETE /sentences/1
   def destroy
     @sentence.destroy
-    redirect_to next_sentences_path, notice: 'Sentenceが削除されました'
+    redirect_to next_sentence_path(Sentence.all.sample), notice: 'Sentenceが削除されました'
   end
 
   def next
-    sentence = Sentence.find_untagged
+    sentence = Sentence.find_untagged(@sentence)
     redirect_to [:edit, sentence]
   end
 

@@ -1,0 +1,20 @@
+= bootstrap_form_for @sentence, url: sentence_feelings_path(@sentence) do |f|
+  = render "shared/errors", object: @sentence
+  = f.text_area :body, rows: 5
+  
+  hr
+  
+  = @sentence.feeling_list.join(',')
+  
+  / = f.text_field :feeling_list, value: @sentence.feeling_list.join(','), data: { role: :tagsinput }, wrapper: { class: 'form-group-narrow' }
+  / = f.collection_check_boxes :feeling_list, Sentence.all_tags(on: :feeling), :id, :name
+  
+  = f.form_group :feeling_list do
+    - Sentence.all_tags(on: 'feeling').each do |tag|
+      = f.check_box :feeling_list, { multiple: true, label: tag.name, checked: @sentence.feeling_list.include?(tag.name) }, tag.id
+
+    
+  .actions.btn-group
+    = f.submit '登録して次へ', class: 'btn btn-success'
+    / = link_to '削除', sentence_feelings_path(@sentence), method: :delete, class: 'btn btn-danger'
+    = link_to 'スキップ', next_sentence_feelings_path(@sentence), class: 'btn btn-default'
